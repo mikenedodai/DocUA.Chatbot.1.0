@@ -1,0 +1,73 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "D1KcbD",
+    "name": "OrderSpecificDrug",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "wKjJzi"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "NYIPmy"
+          },
+          "activityProcessed": true,
+          "dialog": "AskUserName"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "nXhiwX"
+          },
+          "activityProcessed": true,
+          "dialog": "AskPhone"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "S1ULLZ"
+          },
+          "activityProcessed": true,
+          "dialog": "AskPhone"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "pl90Po"
+          },
+          "activityProcessed": true,
+          "dialog": "AskAddress"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "ee8E1o"
+          },
+          "activityProcessed": true,
+          "dialog": "AskPaymentMethod"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "TLcuna"
+          },
+          "activityProcessed": true,
+          "dialog": "ConfirmDrugOrder"
+        }
+      ]
+    }
+  ],
+  "generator": "OrderSpecificDrug.lg",
+  "recognizer": "OrderSpecificDrug.lu.qna",
+  "id": "OrderSpecificDrug"
+}

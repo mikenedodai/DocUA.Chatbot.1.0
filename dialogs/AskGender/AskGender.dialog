@@ -1,0 +1,53 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "CKh4da",
+    "name": "AskGender",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "r7eTOm"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "ank9dB"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_ank9dB()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or "
+          },
+          "property": "user.gender",
+          "choices": [
+            {
+              "value": "Чоловік"
+            },
+            {
+              "value": "Жінка"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "AskGender.lg",
+  "recognizer": "AskGender.lu.qna",
+  "id": "AskGender"
+}

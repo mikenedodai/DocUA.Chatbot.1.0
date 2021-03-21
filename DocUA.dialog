@@ -1,0 +1,84 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "$designer": {
+      "name": "DocUA",
+      "description": "",
+      "id": "BWvzht"
+    }
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "518944",
+            "name": "Loop: for each item"
+          },
+          "itemsProperty": "turn.Activity.membersAdded",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "641773",
+                "name": "Branch: if/else"
+              },
+              "condition": "string(dialog.foreach.value.id) != string(turn.Activity.Recipient.id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "jVU5ei"
+                  },
+                  "activity": "${SendActivity_jVU5ei()}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "3MGn0E"
+          },
+          "activityProcessed": true,
+          "dialog": "Prompt"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "qAAl6h"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.DeleteProperty",
+          "$designer": {
+            "id": "ei8sLP"
+          },
+          "property": "user.text"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "lGvIhL"
+          },
+          "activityProcessed": true,
+          "dialog": "Prompt"
+        }
+      ]
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/microsoft/BotFramework-Composer/stable/Composer/packages/server/schemas/sdk.schema",
+  "generator": "DocUA.lg",
+  "id": "DocUA",
+  "recognizer": "DocUA.lu.qna"
+}

@@ -1,0 +1,225 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "qen8nh",
+    "name": "ConfirmBloodTestAnalysis",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "XrgsL7"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ConfirmInput",
+          "$designer": {
+            "id": "aSTVof"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ConfirmInput_Prompt_aSTVof()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or "
+          },
+          "property": "dialog.bloodTestConfirmed"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "HC9WAL"
+          },
+          "condition": "dialog.bloodTestConfirmed",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "VfpRxr"
+              },
+              "activity": "${SendActivity_VfpRxr()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "avaosS"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${ChoiceInput_Prompt_avaosS()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "dialog.bloodTestOption",
+              "choices": [
+                {
+                  "value": "Вік"
+                },
+                {
+                  "value": "Стать"
+                },
+                {
+                  "value": "Показник"
+                },
+                {
+                  "value": "Значення показника"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "ymWkGO"
+              },
+              "condition": "dialog.bloodTestOption",
+              "cases": [
+                {
+                  "value": "Вік",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.DeleteProperty",
+                      "$designer": {
+                        "id": "kzAcmo"
+                      },
+                      "property": "user.age"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "r8qEbK"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "AskAge"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "EBMiMb"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                },
+                {
+                  "value": "Стать",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.DeleteProperty",
+                      "$designer": {
+                        "id": "xNicEz"
+                      },
+                      "property": "user.gender"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "SgSYzH"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "AskGender"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "EEr8ce"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                },
+                {
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.DeleteProperty",
+                      "$designer": {
+                        "id": "bxxwlv"
+                      },
+                      "property": "user.testParameter"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "UbXdEu"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "AskBloodTestParameter"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "pXNop3"
+                      },
+                      "activityProcessed": true
+                    }
+                  ],
+                  "value": "Показник"
+                },
+                {
+                  "value": "Значення показника",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.DeleteProperty",
+                      "$designer": {
+                        "id": "p0UNke"
+                      },
+                      "property": "user.testParameterValue"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "Y6DPlV"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "AskBloodTestParameterValue"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "rkN4k8"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                }
+              ],
+              "default": [
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "oF9nfW"
+                  },
+                  "activityProcessed": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ConfirmBloodTestAnalysis.lg",
+  "recognizer": "ConfirmBloodTestAnalysis.lu.qna",
+  "id": "ConfirmBloodTestAnalysis"
+}

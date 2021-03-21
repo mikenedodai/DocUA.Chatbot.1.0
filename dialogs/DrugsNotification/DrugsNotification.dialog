@@ -1,0 +1,141 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "8kSsrL",
+    "name": "DrugsNotification",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "2CQ8oZ"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "i3Pqmf"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_i3Pqmf()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.notification.drug"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "uAqqME"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_uAqqME()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true
+          },
+          "property": "user.notification.frequency",
+          "choices": [
+            {
+              "value": "Раз на день"
+            },
+            {
+              "value": "Двічі на день"
+            },
+            {
+              "value": "Тричі на день"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "UUvPmc"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_UUvPmc()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.notification.dosage"
+        },
+        {
+          "$kind": "Microsoft.ConfirmInput",
+          "$designer": {
+            "id": "O133cx"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ConfirmInput_Prompt_O133cx()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or "
+          },
+          "property": "dialog.newnotification"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "6CW69g"
+          },
+          "actions": [
+            {
+              "$kind": "Microsoft.DeleteProperties",
+              "$designer": {
+                "id": "vLIQMi"
+              },
+              "properties": [
+                "user.notification.drug",
+                "user.notification.frequency",
+                "user.notification.dosage"
+              ]
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "iTwLD2"
+              },
+              "activityProcessed": true
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "BN8SSm"
+              },
+              "activity": "${SendActivity_BN8SSm()}"
+            }
+          ],
+          "condition": "dialog.newnotification"
+        }
+      ]
+    }
+  ],
+  "generator": "DrugsNotification.lg",
+  "recognizer": "DrugsNotification.lu.qna",
+  "id": "DrugsNotification"
+}

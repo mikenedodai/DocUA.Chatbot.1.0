@@ -1,0 +1,121 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "7Lk5T7",
+    "name": "TestAnalysis",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "tOU3s9"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "9g43gM"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_9g43gM()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or "
+          },
+          "property": "user.testName",
+          "choices": [
+            {
+              "value": "Аналіз крові"
+            },
+            {
+              "value": "Антитіла lgA до COVID-19 (скоро)"
+            },
+            {
+              "value": "Антитіла lgG до COVID-19 (скоро)"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "KgXaUM"
+          },
+          "condition": "user.testName == \"Аналіз крові\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "yiq3tb"
+              },
+              "activity": "${SendActivity_yiq3tb()}"
+            },
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "mX5zKY"
+              },
+              "activityProcessed": true
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "XLBKWL"
+              },
+              "activityProcessed": true,
+              "dialog": "AskAge"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "yqJ1dL"
+              },
+              "activityProcessed": true,
+              "dialog": "AskGender"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "fWKplz"
+              },
+              "activityProcessed": true,
+              "dialog": "AskBloodTestParameter"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "Eo2h0q"
+              },
+              "activityProcessed": true,
+              "dialog": "AskBloodTestParameterValue"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "xkeIHN"
+              },
+              "activityProcessed": true,
+              "dialog": "ConfirmBloodTestAnalysis"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "TestAnalysis.lg",
+  "recognizer": "TestAnalysis.lu.qna",
+  "id": "TestAnalysis"
+}

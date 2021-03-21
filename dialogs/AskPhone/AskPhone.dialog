@@ -1,0 +1,40 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "WvYOUQ",
+    "name": "AskPhone",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "yh5dVr"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "Trifpt"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_Trifpt()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.phone"
+        }
+      ]
+    }
+  ],
+  "generator": "AskPhone.lg",
+  "recognizer": "AskPhone.lu.qna",
+  "id": "AskPhone"
+}

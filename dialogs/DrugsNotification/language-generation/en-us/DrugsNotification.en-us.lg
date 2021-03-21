@@ -1,0 +1,12 @@
+[import](common.lg)
+
+# TextInput_Prompt_i3Pqmf()
+- Який лікарський засіб ви приймаєте?
+# ChoiceInput_Prompt_uAqqME()
+- Як часто потрібно приймати ліки?
+# TextInput_Prompt_UUvPmc()
+- Яка разова доза ліків?
+# ConfirmInput_Prompt_O133cx()
+- Я створив нове нагадування - лікарський засіб: ${user.notification.drug}, доза: ${user.notification.dosage}, частота: ${user.notification.frequency}. Додати ще одне?
+# SendActivity_BN8SSm()
+- Ок! Ви завжди можете додати нове нагадування, написавши "Нагадування про прийом ліків". 

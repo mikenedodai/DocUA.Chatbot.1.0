@@ -1,0 +1,223 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "NPCTmx",
+    "name": "ConfirmDrugOrder",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "Tw9X8b"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ConfirmInput",
+          "$designer": {
+            "id": "o4CENh"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ConfirmInput_Prompt_o4CENh()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true
+          },
+          "property": "dialog.drugorderconfirmed"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "a8BLaq"
+          },
+          "condition": "dialog.drugorderconfirmed",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "dnmWG3"
+              },
+              "activity": "${SendActivity_dnmWG3()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "OIvk70"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${ChoiceInput_Prompt_OIvk70()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "property": "dialog.editOption",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or "
+              },
+              "choices": [
+                {
+                  "value": "Прізвище та ім'я"
+                },
+                {
+                  "value": "Телефон"
+                },
+                {
+                  "value": "Адресу"
+                },
+                {
+                  "value": "Тип оплати"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "53EFtC"
+              },
+              "default": [
+                {
+                  "$kind": "Microsoft.RepeatDialog",
+                  "$designer": {
+                    "id": "Z72A00"
+                  },
+                  "activityProcessed": true
+                }
+              ],
+              "condition": "dialog.editOption",
+              "cases": [
+                {
+                  "value": "Прізвище та ім'я",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.DeleteProperty",
+                      "$designer": {
+                        "id": "3Jcm7l"
+                      },
+                      "property": "user.name"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "rqu9lY"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "AskUserName"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "KMfZhH"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                },
+                {
+                  "value": "Телефон",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.DeleteProperty",
+                      "$designer": {
+                        "id": "nHzqAE"
+                      },
+                      "property": "user.phone"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "4lURJ7"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "AskPhone"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "1T19RC"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                },
+                {
+                  "value": "Адресу",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.DeleteProperty",
+                      "$designer": {
+                        "id": "eb2cM6"
+                      },
+                      "property": "user.address"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "7qL4cp"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "AskAddress"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "1uLi9r"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                },
+                {
+                  "value": "Тип оплати",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.DeleteProperty",
+                      "$designer": {
+                        "id": "hjgjtT"
+                      },
+                      "property": "user.paymentMethod"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "TZcXdH"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "AskPaymentMethod"
+                    },
+                    {
+                      "$kind": "Microsoft.RepeatDialog",
+                      "$designer": {
+                        "id": "ZMQYYR"
+                      },
+                      "activityProcessed": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "ConfirmDrugOrder.lg",
+  "recognizer": "ConfirmDrugOrder.lu.qna",
+  "id": "ConfirmDrugOrder"
+}

@@ -1,0 +1,59 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "Gex9aw",
+    "name": "AskBloodTestParameter",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "4mEjBK"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "ktdD5I"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_ktdD5I()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or "
+          },
+          "property": "user.testParameter",
+          "choices": [
+            {
+              "value": "Еритроцити"
+            },
+            {
+              "value": "Морфологічна зміна"
+            },
+            {
+              "value": "Гемоглобін"
+            },
+            {
+              "value": "Лейкоцити"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "AskBloodTestParameter.lg",
+  "recognizer": "AskBloodTestParameter.lu.qna",
+  "id": "AskBloodTestParameter"
+}

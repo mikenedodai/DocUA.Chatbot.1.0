@@ -1,0 +1,40 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "RM5zmO",
+    "name": "AskBloodTestParameterValue",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "2t6Wlv"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "gdxDFE"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_gdxDFE()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "property": "user.testParameterValue"
+        }
+      ]
+    }
+  ],
+  "generator": "AskBloodTestParameterValue.lg",
+  "recognizer": "AskBloodTestParameterValue.lu.qna",
+  "id": "AskBloodTestParameterValue"
+}

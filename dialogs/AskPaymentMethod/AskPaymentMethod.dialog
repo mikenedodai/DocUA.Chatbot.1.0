@@ -1,0 +1,56 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "TSt0mm",
+    "name": "AskPaymentMethod",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "msRYF2"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "olMpOL"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_olMpOL()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "defaultValueResponse": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or "
+          },
+          "choices": [
+            {
+              "value": "Готівкою"
+            },
+            {
+              "value": "Банківською картою"
+            },
+            {
+              "value": "За програмою \"Доступні ліки\""
+            }
+          ],
+          "property": "user.paymentMethod"
+        }
+      ]
+    }
+  ],
+  "generator": "AskPaymentMethod.lg",
+  "recognizer": "AskPaymentMethod.lu.qna",
+  "id": "AskPaymentMethod"
+}

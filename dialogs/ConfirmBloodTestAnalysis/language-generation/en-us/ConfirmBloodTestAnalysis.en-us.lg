@@ -1,0 +1,12 @@
+[import](common.lg)
+
+# ConfirmInput_Prompt_aSTVof()
+- Ви вказали ${user.testName}, ${user.testParameter}: ${user.testParameterValue}, ${user.age}, стать: ${user.gender}. Все вірно?
+# SendActivity_VfpRxr()
+[HeroCard
+    title = Ваш показник у нормі
+    subtitle = ${user.testName}. ${user.testParameter}: ${user.testParameterValue}
+    text = Детальне пояснення результатів аналізу.
+]
+# ChoiceInput_Prompt_avaosS()
+- Яку інформацію ви хочете змінити?

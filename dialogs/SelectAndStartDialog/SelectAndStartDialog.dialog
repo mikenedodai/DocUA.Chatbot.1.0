@@ -1,0 +1,102 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "jPJ2mG",
+    "name": "SelectAndStartDialog",
+    "description": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "7VOf90"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "Eo7QPI"
+          },
+          "condition": "user.text",
+          "default": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "AyCcdx"
+              },
+              "activity": "${SendActivity_AyCcdx()}"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "eCXQrA"
+              },
+              "activityProcessed": true,
+              "dialog": "Prompt"
+            }
+          ],
+          "cases": [
+            {
+              "value": "Розшифрувати аналізи",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "tP6Hpb"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "TestAnalysis"
+                }
+              ]
+            },
+            {
+              "value": "Замовити ліки",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "f9qsNC"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "OrderDrugs"
+                }
+              ]
+            },
+            {
+              "value": "Аналіз симптомів",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "Olja6j"
+                  },
+                  "activity": "${SendActivity_Olja6j()}"
+                }
+              ]
+            },
+            {
+              "value": "Нагадування про прийом ліків",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "HfHVYK"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "DrugsNotification"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "SelectAndStartDialog.lg",
+  "recognizer": "SelectAndStartDialog.lu.qna",
+  "id": "SelectAndStartDialog"
+}

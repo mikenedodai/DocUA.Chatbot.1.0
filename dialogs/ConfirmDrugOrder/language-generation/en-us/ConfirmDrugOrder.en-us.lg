@@ -1,0 +1,8 @@
+[import](common.lg)
+
+# ConfirmInput_Prompt_o4CENh()
+- Ваше замовлення: ${user.drug}. Доставка для ${user.name}, адреса: ${user.address}, телефон: ${user.phone}, тип оплати: ${user.paymentMethod}. Все вірно? 
+# SendActivity_dnmWG3()
+- Ваше замовлення прийнято! Очікуйте доставку протягом 4 годин на вказану адресу.
+# ChoiceInput_Prompt_OIvk70()
+- Яку інформацію ви хочете змінити?
