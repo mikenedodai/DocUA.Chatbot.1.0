@@ -32,19 +32,14 @@
           "defaultValueResponse": "",
           "choiceOptions": {
             "includeNumbers": true,
-            "inlineOrMore": ", or "
+            "inlineOrMore": ", or ",
+            "inlineOr": " or "
           },
           "property": "user.testName",
           "choices": [
-            {
-              "value": "Аналіз крові"
-            },
-            {
-              "value": "Антитіла lgA до COVID-19 (скоро)"
-            },
-            {
-              "value": "Антитіла lgG до COVID-19 (скоро)"
-            }
+            "Аналіз крові",
+            "Антитіла lgA до COVID-19 (скоро)",
+            "Антитіла lgG до COVID-19 (скоро)"
           ]
         },
         {

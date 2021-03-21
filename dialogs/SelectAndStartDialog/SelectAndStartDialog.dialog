@@ -70,11 +70,12 @@
               "value": "Аналіз симптомів",
               "actions": [
                 {
-                  "$kind": "Microsoft.SendActivity",
+                  "$kind": "Microsoft.BeginDialog",
                   "$designer": {
-                    "id": "Olja6j"
+                    "id": "nWwY2K"
                   },
-                  "activity": "${SendActivity_Olja6j()}"
+                  "activityProcessed": true,
+                  "dialog": "SymptomsChecker"
                 }
               ]
             },

@@ -1,0 +1,12 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_SalYys()
+- Буль ласка, вкажіть симптом.
+# ChoiceInput_Prompt_D8XBww()
+- Будь ласка, оберіть частину тіла.
+# SendActivity_16YymM()
+- Ви вибрали: ${user.symptom}, ${user.bodyPart}, ${user.gender}. Рекомендації: здати аналіз1, аналіз2 та звернутись до лікаря1. 
+# ConfirmInput_Prompt_PSAvHT()
+- Чи бажаєте проаналізувати ще один симптом?
+# SendActivity_VMCrDd()
+- ОК!
