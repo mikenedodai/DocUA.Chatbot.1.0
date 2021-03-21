@@ -1,2 +1,8 @@
 # prevent appsettings.json get checked in
 **/appsettings.json
+*.csv
+python/classification_model.py
+python/app/webapp.py
+.gitignore
+python/app/__init__.py
+python/doctor_model.pt
